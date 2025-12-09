@@ -183,7 +183,7 @@ nav {
     position: relative;
     height: 500px;
     background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-            url('../images/doubles-title.jpg') center/cover;
+                url('https://images.unsplash.com/photo-1567337710282-00832b415979?w=1200') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -493,6 +493,48 @@ main {
 
 .learn-more-btn.expanded .arrow {
     transform: rotate(180deg);
+}
+
+/* ===================================
+   BACK TO TOP BUTTON
+   =================================== */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 45;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover,
+.back-to-top:focus {
+    background: var(--dark-red);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(220, 20, 60, 0.4);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
 }
 
 /* ===================================
