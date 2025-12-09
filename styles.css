@@ -1,0 +1,634 @@
+/* ===================================
+   TRINIDAD FOOD & CULTURE - MAIN STYLES
+   =================================== */
+
+/* CSS RESET & BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #DC143C;
+    --dark-red: #b01030;
+    --black: #000;
+    --white: #fff;
+    --light-gray: #f8f8f8;
+    --text-gray: #333;
+    --border-gray: #eee;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-gray);
+    background: var(--white);
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ===================================
+   NAVIGATION
+   =================================== */
+
+nav {
+    background: var(--black);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.logo-full {
+    display: none;
+}
+
+.logo-short {
+    display: inline;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 60;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: var(--white);
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: var(--white);
+    padding: 80px 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.nav-menu a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+    color: var(--primary-red);
+    border-bottom-color: var(--primary-red);
+}
+
+.nav-menu a.active {
+    color: var(--primary-red);
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 40;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* ===================================
+   HERO SECTION (Home Page)
+   =================================== */
+
+.hero {
+    position: relative;
+    height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+            url('../images/doubles-title.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    animation: fadeIn 0.8s ease;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* ===================================
+   PAGE HEADER (Dishes & Culture Pages)
+   =================================== */
+
+.page-header {
+    background: var(--white);
+    padding: 3rem 1rem;
+    text-align: center;
+    border-bottom: 3px solid var(--primary-red);
+    animation: fadeIn 0.6s ease;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--black);
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   MAIN CONTENT
+   =================================== */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* ===================================
+   INTRO SECTION (Home Page)
+   =================================== */
+
+.intro {
+    padding: 4rem 1rem;
+    text-align: center;
+    animation: slideUp 0.8s ease 0.2s both;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+}
+
+.intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-gray);
+}
+
+/* ===================================
+   EXPLORE SECTION (Home Page)
+   =================================== */
+
+.explore {
+    background: var(--light-gray);
+    padding: 4rem 1rem;
+    margin: 0 -1rem;
+}
+
+.explore h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--black);
+    border-bottom: 3px solid var(--primary-red);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.explore-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.explore-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.explore-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--border-gray);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.explore-card:nth-child(1) { animation-delay: 0.3s; }
+.explore-card:nth-child(2) { animation-delay: 0.4s; }
+.explore-card:nth-child(3) { animation-delay: 0.5s; }
+
+.explore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(220, 20, 60, 0.3);
+    border-color: var(--primary-red);
+}
+
+.explore-card:focus-within {
+    outline: 3px solid var(--primary-red);
+    outline-offset: 2px;
+}
+
+.card-icon {
+    font-size: 3rem;
+    padding: 2rem 0 1rem;
+    text-align: center;
+}
+
+.explore-card .card-content {
+    padding: 0 2rem 2rem;
+}
+
+.explore-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-red);
+    text-align: center;
+}
+
+.explore-card p {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.explore-card .btn {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-red);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.explore-card .btn:hover,
+.explore-card .btn:focus {
+    background: var(--dark-red);
+}
+
+/* ===================================
+   DISHES & CULTURE GRIDS
+   =================================== */
+
+.dishes-grid,
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 1rem;
+}
+
+/* ===================================
+   FOOD & CULTURE CARDS
+   =================================== */
+
+.food-card,
+.culture-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid var(--border-gray);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.food-card:nth-child(1),
+.culture-card:nth-child(1) { animation-delay: 0.1s; }
+.food-card:nth-child(2),
+.culture-card:nth-child(2) { animation-delay: 0.2s; }
+.food-card:nth-child(3),
+.culture-card:nth-child(3) { animation-delay: 0.3s; }
+.food-card:nth-child(4),
+.culture-card:nth-child(4) { animation-delay: 0.4s; }
+.food-card:nth-child(5) { animation-delay: 0.5s; }
+.food-card:nth-child(6) { animation-delay: 0.6s; }
+
+.food-card:hover,
+.culture-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(220, 20, 60, 0.3);
+    border-color: var(--primary-red);
+}
+
+.food-card:focus-within,
+.culture-card:focus-within {
+    outline: 3px solid var(--primary-red);
+    outline-offset: 2px;
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.food-card:hover .card-image,
+.culture-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.card-preview {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.card-full-description {
+    color: var(--text-gray);
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.card-full-description.expanded {
+    max-height: 600px;
+    margin-bottom: 1rem;
+}
+
+.learn-more-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.learn-more-btn:hover,
+.learn-more-btn:focus {
+    background: var(--dark-red);
+    transform: translateY(-2px);
+}
+
+.learn-more-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.learn-more-btn.expanded .arrow {
+    transform: rotate(180deg);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+
+footer {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-disclaimer {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===================================
+   RESPONSIVE - TABLET
+   =================================== */
+
+@media (min-width: 768px) {
+    .explore-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+    
+    .card-image-container {
+        height: 300px;
+    }
+    
+    .page-header h1 {
+        font-size: 3rem;
+    }
+}
+
+/* ===================================
+   RESPONSIVE - DESKTOP
+   =================================== */
+
+@media (min-width: 1024px) {
+    .logo-full {
+        display: inline;
+    }
+    
+    .logo-short {
+        display: none;
+    }
+    
+    .hamburger {
+        display: none;
+    }
+    
+    .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+    
+    .nav-menu ul {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .nav-menu a {
+        color: var(--white);
+        font-size: 1rem;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a:focus {
+        color: var(--primary-red);
+    }
+    
+    .explore-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero {
+        height: 600px;
+    }
+    
+    .dishes-grid,
+    .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
